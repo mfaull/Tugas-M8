@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-container label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .form-container input, .form-container select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        function validasiForm() {
+            const tipeKamar = document.getElementById('tipeKamar').value;
+            const harga = document.getElementById('harga').value;
+            const fasilitas = document.getElementById('fasilitas').value;
+
+            if (tipeKamar === "") {
+                alert("Tipe kamar harus diisi!");
+                return false;
+            }
+            if (harga === "" || isNaN(harga) || harga <= 0) {
+                alert("Harga harus diisi dengan angka yang valid!");
+                return false;
+            }
+            if (fasilitas === "") {
+                alert("Fasilitas harus dipilih!");
+                return false;
+            }
+
+            alert("Data berhasil ditambahkan!");
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="form-container">
+        <form onsubmit="return validasiForm();">
+            <h2>Tambah Data Kamar</h2>
+            <label>Tipe Kamar:</label>
+            <input type="text" id="tipeKamar" placeholder="Contoh: Deluxe">
+            <label>Harga:</label>
+            <input type="text" id="harga" placeholder="Masukkan harga kamar">
+            <label>Fasilitas:</label>
+            <select id="fasilitas">
+                <option value="">Pilih fasilitas</option>
+                <option value="WiFi">WiFi</option>
+                <option value="AC">AC</option>
+                <option value="TV">TV Kabel</option>
+                <option value="Sarapan">Sarapan Pagi</option>
+                <option value="Kamar Mandi Pribadi">Kamar Mandi Pribadi</option>
+            </select>
+            <button type="submit">Simpan</button>
+        </form>
+    </div>
+</body>
+</html>
